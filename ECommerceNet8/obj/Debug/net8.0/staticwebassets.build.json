@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ls8WZb0QaSLcZloXjJcFZM9UsZFoIgkHMV1QYmcpCjc=",
+  "Hash": "h45u4/z/NXscqdfjhYvL5vGZeAc3qSZkrLWcGcNu+6o=",
   "Source": "ECommerceNet8",
   "BasePath": "_content/ECommerceNet8",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "ECommerceNet8\\wwwroot",
       "Source": "ECommerceNet8",
-      "ContentRoot": "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\wwwroot\\",
       "BasePath": "_content/ECommerceNet8",
       "Pattern": "**"
     }
@@ -1157,10 +1157,29 @@
       "OriginalItemSpec": "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.0-preview.4.23260.4\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\wwwroot\\Images\\ProductId_1\\Image_20.12.2023_352.jpg",
+      "Identity": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\wwwroot\\ImageForPDF\\Logo.png",
       "SourceId": "ECommerceNet8",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\wwwroot\\",
+      "BasePath": "_content/ECommerceNet8",
+      "RelativePath": "ImageForPDF/Logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ImageForPDF\\Logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\wwwroot\\Images\\ProductId_1\\Image_20.12.2023_352.jpg",
+      "SourceId": "ECommerceNet8",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\wwwroot\\",
       "BasePath": "_content/ECommerceNet8",
       "RelativePath": "Images/ProductId_1/Image_20.12.2023_352.jpg",
       "AssetKind": "All",
@@ -1176,12 +1195,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductId_1\\Image_20.12.2023_352.jpg"
     },
     {
-      "Identity": "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\wwwroot\\Images\\ProductId_1\\Image_20.12.2023_864.webp",
+      "Identity": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\wwwroot\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\CBO501784390\\PDF_8.01.2024_529.pdf",
       "SourceId": "ECommerceNet8",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\wwwroot\\",
       "BasePath": "_content/ECommerceNet8",
-      "RelativePath": "Images/ProductId_1/Image_20.12.2023_864.webp",
+      "RelativePath": "PDF/c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9/CBO501784390/PDF_8.01.2024_529.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1192,7 +1211,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\ProductId_1\\Image_20.12.2023_864.webp"
+      "OriginalItemSpec": "wwwroot\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\CBO501784390\\PDF_8.01.2024_529.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\wwwroot\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\ĞEF521600642\\PDF_8.01.2024_111.pdf",
+      "SourceId": "ECommerceNet8",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\wwwroot\\",
+      "BasePath": "_content/ECommerceNet8",
+      "RelativePath": "PDF/c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9/ĞEF521600642/PDF_8.01.2024_111.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\ĞEF521600642\\PDF_8.01.2024_111.pdf"
     }
   ]
 }

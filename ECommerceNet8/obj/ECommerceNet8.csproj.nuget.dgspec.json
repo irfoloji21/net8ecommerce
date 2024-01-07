@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\ECommerceNet8.csproj": {}
+    "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\ECommerceNet8.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\ECommerceNet8.csproj": {
+    "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\ECommerceNet8.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\ECommerceNet8.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\ECommerceNet8.csproj",
         "projectName": "ECommerceNet8",
-        "projectPath": "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\ECommerceNet8.csproj",
+        "projectPath": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\ECommerceNet8.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\obj\\",
+        "outputPath": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -92,7 +92,7 @@
             },
             "itext7": {
               "target": "Package",
-              "version": "[8.0.2, )"
+              "version": "[7.2.5, )"
             }
           },
           "imports": [

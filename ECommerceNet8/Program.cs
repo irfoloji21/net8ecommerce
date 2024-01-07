@@ -1,13 +1,17 @@
 using ECommerceNet8.Configurations;
 using ECommerceNet8.Data;
 using ECommerceNet8.Models.AuthModels;
+using ECommerceNet8.Repositories.AddressRepository;
 using ECommerceNet8.Repositories.AuthRepository;
 using ECommerceNet8.Repositories.BaseProductRepository;
 using ECommerceNet8.Repositories.MainCategoryRepository;
 using ECommerceNet8.Repositories.MaterialRepository;
+using ECommerceNet8.Repositories.OrderRepository;
 using ECommerceNet8.Repositories.ProductColorRepository;
 using ECommerceNet8.Repositories.ProductSizeRepository;
 using ECommerceNet8.Repositories.ProductVariantRepository;
+using ECommerceNet8.Repositories.ShippingTypeRepository;
+using ECommerceNet8.Repositories.ShoppingCartRepository;
 using ECommerceNet8.Repositories.ValidationsRepository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -18,7 +22,7 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Servisler aþaðýda eklendi
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -35,7 +39,7 @@ builder.Services.AddDefaultIdentity<ApiUser>(options =>
     options.Password.RequiredLength = 8;
 
     options.User.AllowedUserNameCharacters =
-    "abcçdefgðhýijklmnoöprsþtuüvyzABCÇDEFGÐHIÝJKLMNOÖPRSÞTUÜVYZ-._@+!";
+    "abcçdefgðhýijklmnoöprsþtuüvyzABCÇDEFGÐHIÝJKLMNOÖPRSÞTUÜVYZ-._@+!"; //ç, ü , ö gibi özel karakterler eklendi
 
     options.User.RequireUniqueEmail = true;
 }).AddRoles<IdentityRole>()
@@ -73,6 +77,11 @@ builder.Services.AddScoped<IProductColorRepository, ProductColorRepository>();
 builder.Services.AddScoped<IProductSizeRepository, ProductSizeRepository>();
 builder.Services.AddScoped<IBaseProductRepository, BaseProductRepository>();
 builder.Services.AddScoped<IProductVariantRepository, ProductVariantRepository>();
+builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
+builder.Services.AddScoped<IAddressRepository, AddressRepository>();
+builder.Services.AddScoped<IShippingTypeRepository, ShippingTypeRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
 
 builder.Services.AddSendGrid(options =>
 {

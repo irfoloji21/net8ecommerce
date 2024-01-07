@@ -126,6 +126,351 @@ namespace ECommerceNet8.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.Address", b =>
+                {
+                    b.Property<int>("AddressId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AddressId"));
+
+                    b.Property<int?>("AppartmentNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("HouseNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AddressId");
+
+                    b.ToTable("Addresses");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ItemAtCustomer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BaseProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BaseProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PricePaidPerItem")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ProductVariantColor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductVariantId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductVariantSize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("ItemAtCustomers");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.Order", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
+
+                    b.Property<int?>("AppartmentNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("HouseNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderFromCustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("OrderTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("OrderUniqueIdentifier")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserFirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserLastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("OrderId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.OrderFromCustomer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal?>("Discount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("ItemSent")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("OrderCanceled")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PdfInfoId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("RefundMade")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ShippingFirmName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("ShippingPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("ShippingTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId")
+                        .IsUnique();
+
+                    b.ToTable("OrdersFromCustomers");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.OrderItem", b =>
+                {
+                    b.Property<int>("OrderItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderItemId"));
+
+                    b.Property<int>("BaseProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BaseProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Discount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderFromCustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PricePerItem")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ProductVariantColor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductVariantId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductVariantSize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("OrderItemId");
+
+                    b.HasIndex("OrderFromCustomerId");
+
+                    b.ToTable("OrdersItems");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.PdfInfo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Added")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OrderFromCustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderFromCustomerId")
+                        .IsUnique();
+
+                    b.ToTable("PdfInfos");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ReturnedItemsFromCustomer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BaseProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BaseProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PricePerItem")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ProductVariantColor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductVariantId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductVariantSize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("returnedItemsFromCustomers");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ShippingType", b =>
+                {
+                    b.Property<int>("ShippingTypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShippingTypeId"));
+
+                    b.Property<bool>("FreeTier")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ShippingFirmName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ShippingTypeId");
+
+                    b.ToTable("ShippingTypes");
+                });
+
             modelBuilder.Entity("ECommerceNet8.Models.ProductModels.BaseProduct", b =>
                 {
                     b.Property<int>("Id")
@@ -294,6 +639,49 @@ namespace ECommerceNet8.Migrations
                     b.ToTable("ProductVariants");
                 });
 
+            modelBuilder.Entity("ECommerceNet8.Models.ShoppingCartModels.CartItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ProductVariantId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShoppingCartId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShoppingCartId");
+
+                    b.ToTable("CartItems");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.ShoppingCartModels.ShoppingCart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ApiUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApiUserId");
+
+                    b.ToTable("ShoppingCarts");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -445,6 +833,57 @@ namespace ECommerceNet8.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ItemAtCustomer", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.OrderModels.Order", "Order")
+                        .WithMany("ItemsAtCustomer")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.OrderFromCustomer", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.OrderModels.Order", "Order")
+                        .WithOne("OriginalOrderFromCustomer")
+                        .HasForeignKey("ECommerceNet8.Models.OrderModels.OrderFromCustomer", "OrderId");
+
+                    b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.OrderItem", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.OrderModels.OrderFromCustomer", "orderFromCustomer")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderFromCustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("orderFromCustomer");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.PdfInfo", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.OrderModels.OrderFromCustomer", "OrderFromCustomer")
+                        .WithOne("pdfInfo")
+                        .HasForeignKey("ECommerceNet8.Models.OrderModels.PdfInfo", "OrderFromCustomerId");
+
+                    b.Navigation("OrderFromCustomer");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ReturnedItemsFromCustomer", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.OrderModels.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("ECommerceNet8.Models.ProductModels.BaseProduct", b =>
                 {
                     b.HasOne("ECommerceNet8.Models.ProductModels.MainCategory", "MainCategory")
@@ -502,6 +941,28 @@ namespace ECommerceNet8.Migrations
                     b.Navigation("productSize");
                 });
 
+            modelBuilder.Entity("ECommerceNet8.Models.ShoppingCartModels.CartItem", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.ShoppingCartModels.ShoppingCart", "shoppingCart")
+                        .WithMany("CartItems")
+                        .HasForeignKey("ShoppingCartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("shoppingCart");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.ShoppingCartModels.ShoppingCart", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.AuthModels.ApiUser", "ApiUser")
+                        .WithMany()
+                        .HasForeignKey("ApiUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApiUser");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -553,6 +1014,22 @@ namespace ECommerceNet8.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.Order", b =>
+                {
+                    b.Navigation("ItemsAtCustomer");
+
+                    b.Navigation("OriginalOrderFromCustomer")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.OrderFromCustomer", b =>
+                {
+                    b.Navigation("OrderItems");
+
+                    b.Navigation("pdfInfo")
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ECommerceNet8.Models.ProductModels.BaseProduct", b =>
                 {
                     b.Navigation("ImageBases");
@@ -578,6 +1055,11 @@ namespace ECommerceNet8.Migrations
             modelBuilder.Entity("ECommerceNet8.Models.ProductModels.ProductSize", b =>
                 {
                     b.Navigation("productVariants");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.ShoppingCartModels.ShoppingCart", b =>
+                {
+                    b.Navigation("CartItems");
                 });
 #pragma warning restore 612, 618
         }

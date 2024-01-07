@@ -36,7 +36,7 @@ namespace ECommerceNet8.Repositories.ProductVariantRepository
                 return new Response_ProductVariantWithObj()
                 {
                     isSuccess = false,
-                    Message = "Mevzubahis ürünün varyantı bulunmamaktadır"
+                    Message = "Mevzubahis ürün varyantı bulunmamaktadır"
                 };
             }
 

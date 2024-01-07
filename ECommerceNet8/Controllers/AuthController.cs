@@ -52,14 +52,14 @@ namespace ECommerceNet8.Controllers
                 });
             }
 
-            //user confirmation
+            //kullanıcı confirmation kısmı
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(userDto.apiUser);
 
             var callbackUrl = Request.Scheme + "://" + Request.Host + Url.Action("ConfirmEmail", "Auth", new { userId = userDto.apiUser.Id, code = code });
 
             var body = EmailTemplates.EmailLinkTemplate(callbackUrl);
 
-            //email sending
+            //email gönderme
             var result = await SendEmail(body, "test@gmail.com");
 
             string EmailMessage = result ? "Email gönderildi" : "Email gönderilirken bir hata oluştu";
@@ -150,7 +150,7 @@ namespace ECommerceNet8.Controllers
             return Ok(authResponse);
         }
 
-        //private functions
+        //private functionlar
 
         private async Task<bool> SendEmail(
             string body,

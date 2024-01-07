@@ -88,12 +88,13 @@
           }
         }
       },
-      "itext/8.0.2": {
+      "itext7/7.2.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.DotNet.PlatformAbstractions": "1.1.0",
           "Microsoft.Extensions.DependencyModel": "1.1.0",
           "Microsoft.Extensions.Logging": "5.0.0",
+          "Portable.BouncyCastle": "1.8.9",
           "System.Collections.NonGeneric": "4.3.0",
           "System.Diagnostics.Process": "4.3.0",
           "System.Globalization.Extensions": "4.3.0",
@@ -105,13 +106,10 @@
           "System.Threading.Thread": "4.3.0",
           "System.Threading.ThreadPool": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0",
-          "itext.commons": "8.0.2"
+          "itext7.commons": "7.2.5"
         },
         "compile": {
           "lib/netstandard2.0/itext.barcodes.dll": {
-            "related": ".xml"
-          },
-          "lib/netstandard2.0/itext.bouncy-castle-connector.dll": {
             "related": ".xml"
           },
           "lib/netstandard2.0/itext.forms.dll": {
@@ -143,9 +141,6 @@
           "lib/netstandard2.0/itext.barcodes.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/itext.bouncy-castle-connector.dll": {
-            "related": ".xml"
-          },
           "lib/netstandard2.0/itext.forms.dll": {
             "related": ".xml"
           },
@@ -172,7 +167,7 @@
           }
         }
       },
-      "itext.commons/8.0.2": {
+      "itext7.commons/7.2.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Logging": "5.0.0",
@@ -187,12 +182,6 @@
           "lib/netstandard2.0/itext.commons.dll": {
             "related": ".xml"
           }
-        }
-      },
-      "itext7/8.0.2": {
-        "type": "package",
-        "dependencies": {
-          "itext": "8.0.2"
         }
       },
       "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.0-preview.4.23260.4": {
@@ -1073,6 +1062,19 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Portable.BouncyCastle/1.8.9": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
             "related": ".xml"
           }
         }
@@ -2514,22 +2516,20 @@
         "logo.png"
       ]
     },
-    "itext/8.0.2": {
-      "sha512": "79IRTeZZirzRDEtB1PtUMSpsxaJiFz5rAXY4/VtSipsi0qlQpJ/88jxd2SsfX0IggH+wlrsiAc0Y8X2et2T+Bg==",
+    "itext7/7.2.5": {
+      "sha512": "S4R7fN3AqbIUJe3BKSRDP2byU+G/rnY8rX3muYuv6VEMQhswlEytjVBvJSloZ6lN24kgm6ZFDkPKdjqSaSEFsw==",
       "type": "package",
-      "path": "itext/8.0.2",
+      "path": "itext7/7.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "ITSC-avatar.png",
         "LICENSE.md",
         "gnu-agpl-v3.0.md",
-        "itext.8.0.2.nupkg.sha512",
-        "itext.nuspec",
+        "itext7.7.2.5.nupkg.sha512",
+        "itext7.nuspec",
         "lib/net461/itext.barcodes.dll",
         "lib/net461/itext.barcodes.xml",
-        "lib/net461/itext.bouncy-castle-connector.dll",
-        "lib/net461/itext.bouncy-castle-connector.xml",
         "lib/net461/itext.forms.dll",
         "lib/net461/itext.forms.xml",
         "lib/net461/itext.io.dll",
@@ -2548,8 +2548,6 @@
         "lib/net461/itext.svg.xml",
         "lib/netstandard2.0/itext.barcodes.dll",
         "lib/netstandard2.0/itext.barcodes.xml",
-        "lib/netstandard2.0/itext.bouncy-castle-connector.dll",
-        "lib/netstandard2.0/itext.bouncy-castle-connector.xml",
         "lib/netstandard2.0/itext.forms.dll",
         "lib/netstandard2.0/itext.forms.xml",
         "lib/netstandard2.0/itext.io.dll",
@@ -2568,34 +2566,20 @@
         "lib/netstandard2.0/itext.svg.xml"
       ]
     },
-    "itext.commons/8.0.2": {
-      "sha512": "/F7j7XERA84XgIXDb4j/so1GagAToraVKZIRAdk/ibkvYoU1uwuILU2Ly28sSFf12NN7WIBQHKSk7njJl7Nk8g==",
+    "itext7.commons/7.2.5": {
+      "sha512": "SGOVNpmPgtrQrwRxnLPObxhp0dytIirRVJGJ6KqrEI2GKQuoINfHv5ymTpQm2odOkz+Iuxaptqv8vLwFXG2blg==",
       "type": "package",
-      "path": "itext.commons/8.0.2",
+      "path": "itext7.commons/7.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "ITSC-avatar.png",
-        "itext.commons.8.0.2.nupkg.sha512",
-        "itext.commons.nuspec",
+        "itext7.commons.7.2.5.nupkg.sha512",
+        "itext7.commons.nuspec",
         "lib/net461/itext.commons.dll",
         "lib/net461/itext.commons.xml",
         "lib/netstandard2.0/itext.commons.dll",
         "lib/netstandard2.0/itext.commons.xml"
-      ]
-    },
-    "itext7/8.0.2": {
-      "sha512": "IuFfSlMSTLqVGCIsxpcDL9kCtEfppSBjq4V+RgfrxnqEC+iNF4tCHiIdl8quyzTDbaHF4vNufxe2NXMJMkPlSw==",
-      "type": "package",
-      "path": "itext7/8.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "ITSC-avatar.png",
-        "LICENSE.md",
-        "gnu-agpl-v3.0.md",
-        "itext7.8.0.2.nupkg.sha512",
-        "itext7.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.0-preview.4.23260.4": {
@@ -4145,6 +4129,21 @@
         "newtonsoft.json.13.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
+      ]
+    },
+    "Portable.BouncyCastle/1.8.9": {
+      "sha512": "wlJo8aFoeyl+W93iFXTK5ShzDYk5WBqoUPjTNEM0Xv9kn1H+4hmuCjF0/n8HLm9Nnp1aY6KNndWqQTNk+NGgRQ==",
+      "type": "package",
+      "path": "portable.bouncycastle/1.8.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/BouncyCastle.Crypto.dll",
+        "lib/net40/BouncyCastle.Crypto.xml",
+        "lib/netstandard2.0/BouncyCastle.Crypto.dll",
+        "lib/netstandard2.0/BouncyCastle.Crypto.xml",
+        "portable.bouncycastle.1.8.9.nupkg.sha512",
+        "portable.bouncycastle.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -7481,7 +7480,7 @@
       "SendGrid >= 9.28.1",
       "SendGrid.Extensions.DependencyInjection >= 1.0.1",
       "Swashbuckle.AspNetCore >= 6.4.0",
-      "itext7 >= 8.0.2"
+      "itext7 >= 7.2.5"
     ]
   },
   "packageFolders": {
@@ -7491,11 +7490,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\ECommerceNet8.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\ECommerceNet8.csproj",
       "projectName": "ECommerceNet8",
-      "projectPath": "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\ECommerceNet8.csproj",
+      "projectPath": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\ECommerceNet8.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\obj\\",
+      "outputPath": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -7576,7 +7575,7 @@
           },
           "itext7": {
             "target": "Package",
-            "version": "[8.0.2, )"
+            "version": "[7.2.5, )"
           }
         },
         "imports": [

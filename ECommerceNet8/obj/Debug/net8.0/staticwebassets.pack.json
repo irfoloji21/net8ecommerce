@@ -1,12 +1,20 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\wwwroot\\Images\\ProductId_1\\Image_20.12.2023_352.jpg",
+      "Id": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\wwwroot\\ImageForPDF\\Logo.png",
+      "PackagePath": "staticwebassets\\ImageForPDF\\Logo.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\wwwroot\\Images\\ProductId_1\\Image_20.12.2023_352.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductId_1\\Image_20.12.2023_352.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Desktop\\ECommerceNet8\\ECommerceNet8\\wwwroot\\Images\\ProductId_1\\Image_20.12.2023_864.webp",
-      "PackagePath": "staticwebassets\\Images\\ProductId_1\\Image_20.12.2023_864.webp"
+      "Id": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\wwwroot\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\CBO501784390\\PDF_8.01.2024_529.pdf",
+      "PackagePath": "staticwebassets\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\CBO501784390\\PDF_8.01.2024_529.pdf"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Desktop\\net8ecommerce\\ECommerceNet8\\wwwroot\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\ĞEF521600642\\PDF_8.01.2024_111.pdf",
+      "PackagePath": "staticwebassets\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\ĞEF521600642\\PDF_8.01.2024_111.pdf"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ECommerceNet8.Microsoft.AspNetCore.StaticWebAssets.props",

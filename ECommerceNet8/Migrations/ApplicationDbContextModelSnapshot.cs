@@ -169,6 +169,185 @@ namespace ECommerceNet8.Migrations
                     b.ToTable("Addresses");
                 });
 
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ExchangeConfirmedPdfInfo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Added")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ItemExchangeRequestId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemExchangeRequestId")
+                        .IsUnique();
+
+                    b.ToTable("ExchangeConfirmedPdfInfos");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ExchangeItemCanceled", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BaseProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BaseProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CancelationReason")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ItemExchangeRequestId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PricePerItemPaid")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReturnedProductVariantColor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ReturnedProductVariantId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReturnedProductVariantSize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemExchangeRequestId");
+
+                    b.ToTable("ExchangeItemsCanceled");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ExchangeItemPending", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BaseProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BaseProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ItemExchangeRequestId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("PricePerItemPaid")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReturnedProductVariantColor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ReturnedProductVariantId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReturnedProductVariantSize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemExchangeRequestId");
+
+                    b.ToTable("ExchangeItemsPending");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ExchangeOrderItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BaseProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BaseProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExchangedProductVariantColor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ExchangedProductVariantId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ExchangedProductVariantSize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ItemExchangeRequestId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("PricePerItemPaid")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReturnedProductVariantColor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ReturnedProductVariantId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReturnedProductVariantSize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemExchangeRequestId");
+
+                    b.ToTable("ExchangeOrderItems");
+                });
+
             modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ItemAtCustomer", b =>
                 {
                     b.Property<int>("Id")
@@ -201,11 +380,252 @@ namespace ECommerceNet8.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
 
                     b.ToTable("ItemAtCustomers");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ItemBadForRefund", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BaseProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BaseProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ItemReturnRequestId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PricePaidPerItem")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ProductColor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductSize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductVariantId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReasonForNotRefunding")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemReturnRequestId");
+
+                    b.ToTable("ItemsBadForRefund");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ItemExchangeRequest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AdminId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AdminName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ApartmentNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ExchangeConfirmedPdfInfoId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ExchangeUniqueIdentifier")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("HouseNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OrderUniqueIdentifier")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("RequestClosed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserFirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserLastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserPhone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("ItemExchangeRequests");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ItemGoodForRefund", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BaseProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BaseProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ItemReturnRequestId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PricePaidPerItem")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ProductColor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductSize")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductVariantId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemReturnRequestId");
+
+                    b.ToTable("ItemsGoodForRefund");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ItemReturnRequest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AdminFullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AdminId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ExchangeRequestTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("ExchangeUniqueIdentifier")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OrderUniqueIdentifier")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("RequestClosed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RequestRefunded")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserBankAccount")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserBankName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserPhone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("totalAmountNotRefunded")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("totalAmountRefunded")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("totalRequestForRefund")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("ItemReturnRequests");
                 });
 
             modelBuilder.Entity("ECommerceNet8.Models.OrderModels.Order", b =>
@@ -639,6 +1059,120 @@ namespace ECommerceNet8.Migrations
                     b.ToTable("ProductVariants");
                 });
 
+            modelBuilder.Entity("ECommerceNet8.Models.ReturnExchangeModels.ExchangeRequestFromUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ApartmentNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ExchangeRequestTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("ExchangeUniqueIdentifier")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("HouseNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OrderUniqueIdentifier")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("exchangeRequestsFromUsers");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.ReturnExchangeModels.ReturnRequestFromUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AccountNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BankName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ExchangeRequestTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("ExchangeUniqueIdentifier")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OrderUniqueIdentifier")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("returnRequestsFromUsers");
+                });
+
             modelBuilder.Entity("ECommerceNet8.Models.ShoppingCartModels.CartItem", b =>
                 {
                     b.Property<int>("Id")
@@ -833,6 +1367,48 @@ namespace ECommerceNet8.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ExchangeConfirmedPdfInfo", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.OrderModels.ItemExchangeRequest", "ItemExchangeRequest")
+                        .WithOne("exchangeConfirmedPdfInfo")
+                        .HasForeignKey("ECommerceNet8.Models.OrderModels.ExchangeConfirmedPdfInfo", "ItemExchangeRequestId");
+
+                    b.Navigation("ItemExchangeRequest");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ExchangeItemCanceled", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.OrderModels.ItemExchangeRequest", "ItemExchangeRequest")
+                        .WithMany("exchangeItemsCanceled")
+                        .HasForeignKey("ItemExchangeRequestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ItemExchangeRequest");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ExchangeItemPending", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.OrderModels.ItemExchangeRequest", "ItemExchangeRequest")
+                        .WithMany("exchangeItemsPending")
+                        .HasForeignKey("ItemExchangeRequestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ItemExchangeRequest");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ExchangeOrderItem", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.OrderModels.ItemExchangeRequest", "ItemExchangeRequest")
+                        .WithMany("exchangeOrderItems")
+                        .HasForeignKey("ItemExchangeRequestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ItemExchangeRequest");
+                });
+
             modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ItemAtCustomer", b =>
                 {
                     b.HasOne("ECommerceNet8.Models.OrderModels.Order", "Order")
@@ -842,6 +1418,50 @@ namespace ECommerceNet8.Migrations
                         .IsRequired();
 
                     b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ItemBadForRefund", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.OrderModels.ItemReturnRequest", "itemReturnRequest")
+                        .WithMany("itemsBadForRefund")
+                        .HasForeignKey("ItemReturnRequestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("itemReturnRequest");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ItemExchangeRequest", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.OrderModels.Order", "Order")
+                        .WithMany("ItemExchangeRequests")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ItemGoodForRefund", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.OrderModels.ItemReturnRequest", "ItemReturnRequest")
+                        .WithMany("itemsGoodForRefund")
+                        .HasForeignKey("ItemReturnRequestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ItemReturnRequest");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ItemReturnRequest", b =>
+                {
+                    b.HasOne("ECommerceNet8.Models.OrderModels.Order", "order")
+                        .WithMany("itemReturnRequests")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("order");
                 });
 
             modelBuilder.Entity("ECommerceNet8.Models.OrderModels.OrderFromCustomer", b =>
@@ -876,7 +1496,7 @@ namespace ECommerceNet8.Migrations
             modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ReturnedItemsFromCustomer", b =>
                 {
                     b.HasOne("ECommerceNet8.Models.OrderModels.Order", "Order")
-                        .WithMany()
+                        .WithMany("ReturnedItemsFromCustomers")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1014,12 +1634,37 @@ namespace ECommerceNet8.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ItemExchangeRequest", b =>
+                {
+                    b.Navigation("exchangeConfirmedPdfInfo")
+                        .IsRequired();
+
+                    b.Navigation("exchangeItemsCanceled");
+
+                    b.Navigation("exchangeItemsPending");
+
+                    b.Navigation("exchangeOrderItems");
+                });
+
+            modelBuilder.Entity("ECommerceNet8.Models.OrderModels.ItemReturnRequest", b =>
+                {
+                    b.Navigation("itemsBadForRefund");
+
+                    b.Navigation("itemsGoodForRefund");
+                });
+
             modelBuilder.Entity("ECommerceNet8.Models.OrderModels.Order", b =>
                 {
+                    b.Navigation("ItemExchangeRequests");
+
                     b.Navigation("ItemsAtCustomer");
 
                     b.Navigation("OriginalOrderFromCustomer")
                         .IsRequired();
+
+                    b.Navigation("ReturnedItemsFromCustomers");
+
+                    b.Navigation("itemReturnRequests");
                 });
 
             modelBuilder.Entity("ECommerceNet8.Models.OrderModels.OrderFromCustomer", b =>

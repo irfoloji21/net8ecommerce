@@ -47,6 +47,20 @@ namespace ECommerceNet8.Repositories.OrderRepository
                 .Include(o => o.OriginalOrderFromCustomer)
                 .ThenInclude(oo => oo.pdfInfo)
                 .Include(o => o.ItemsAtCustomer)
+
+                .Include(o => o.ItemExchangeRequests)
+                .ThenInclude(ie => ie.exchangeOrderItems)
+                .Include(o => o.ItemExchangeRequests)
+                .ThenInclude(ie => ie.exchangeItemsCanceled)
+                .Include(o => o.ItemExchangeRequests)
+                .ThenInclude(ie => ie.exchangeItemsPending)
+                .Include(o => o.ItemExchangeRequests)
+                .ThenInclude(ie => ie.exchangeConfirmedPdfInfo)
+
+                .Include(o => o.itemReturnRequests)
+                .ThenInclude(ir => ir.itemsGoodForRefund)
+                .Include(o => o.itemReturnRequests)
+                .ThenInclude(ir => ir.itemsBadForRefund)
                 .ToListAsync();
 
             return orders;
@@ -60,6 +74,22 @@ namespace ECommerceNet8.Repositories.OrderRepository
                 .Include(o => o.OriginalOrderFromCustomer)
                 .ThenInclude(oo => oo.pdfInfo)
                 .Include(o => o.ItemsAtCustomer)
+                    
+                .Include(o => o.ItemExchangeRequests)
+                .ThenInclude(ie => ie.exchangeOrderItems)
+                .Include(o => o.ItemExchangeRequests)
+                .ThenInclude(ie => ie.exchangeItemsCanceled)
+                .Include(o => o.ItemExchangeRequests)
+                .ThenInclude(ie => ie.exchangeItemsPending)
+                .Include(o => o.ItemExchangeRequests)
+                .ThenInclude(ie => ie.exchangeConfirmedPdfInfo)
+
+
+                .Include(o => o.itemReturnRequests)
+                .ThenInclude(ir => ir.itemsGoodForRefund)
+                .Include(o => o.itemReturnRequests)
+                .ThenInclude(ir => ir.itemsBadForRefund)
+
                 .FirstOrDefaultAsync(o => o.OrderUniqueIdentifier == OrderUniqueIdentifier);
 
             return order;
@@ -91,6 +121,17 @@ namespace ECommerceNet8.Repositories.OrderRepository
                 .Include(o => o.OriginalOrderFromCustomer)
                 .ThenInclude(oo => oo.pdfInfo)
                 .Include(o => o.ItemsAtCustomer)
+
+
+                .Include(o => o.ItemExchangeRequests)
+                .ThenInclude(ie => ie.exchangeOrderItems)
+                .Include(o => o.ItemExchangeRequests)
+                .ThenInclude(ie => ie.exchangeItemsCanceled)
+                .Include(o => o.ItemExchangeRequests)
+                .ThenInclude(ie => ie.exchangeItemsPending)
+                .Include(o => o.ItemExchangeRequests)
+                .ThenInclude(ie => ie.exchangeConfirmedPdfInfo)
+
                 .ToArrayAsync();
 
             return orders;
@@ -163,7 +204,7 @@ namespace ECommerceNet8.Repositories.OrderRepository
                 return new Response_Order()
                 {
                     isSuccess = false,
-                    Message = "No Existing Shopping Cart For User",
+                    Message = "Kullanıcının sepeti yok",
                     OrderUniqueIdentifier = "0"
                 };
             }
@@ -191,7 +232,7 @@ namespace ECommerceNet8.Repositories.OrderRepository
                 return new Response_Order()
                 {
                     isSuccess = false,
-                    Message = "Some Items Dont Have Enough Quantity In Stock",
+                    Message = "Bazı ürünlerden stokta yeterli miktarda yok",
                     OrderUniqueIdentifier = "0"
                 };
             }
@@ -268,10 +309,10 @@ namespace ECommerceNet8.Repositories.OrderRepository
                 .ThenInclude(oo => oo.OrderItems)
                 .FirstOrDefaultAsync(o => o.OrderId == orderFromCustomer.OrderId);
 
-            //PDF Oluştur
+            //PDF Oluşturmaca
             PdfInfo pdfInfo = new PdfInfo();
             pdfInfo.OrderFromCustomerId = orderFromCustomer.Id;
-            pdfInfo.Name = "PDF info for " + order.OrderUniqueIdentifier + " order";
+            pdfInfo.Name = order.OrderUniqueIdentifier + " siparişi için PDF bilgilendirmesi ";
             pdfInfo.Added = DateTime.UtcNow;
             pdfInfo.Path = await CreatePdf(existingOrder);
 

@@ -10,6 +10,10 @@ using ECommerceNet8.Repositories.OrderRepository;
 using ECommerceNet8.Repositories.ProductColorRepository;
 using ECommerceNet8.Repositories.ProductSizeRepository;
 using ECommerceNet8.Repositories.ProductVariantRepository;
+using ECommerceNet8.Repositories.RefundRepository;
+using ECommerceNet8.Repositories.ReturnExchangeRequestRepository;
+using ECommerceNet8.Repositories.ReturnExchangeRequestRepository;
+using ECommerceNet8.Repositories.ReturnRequestRepository;
 using ECommerceNet8.Repositories.ShippingTypeRepository;
 using ECommerceNet8.Repositories.ShoppingCartRepository;
 using ECommerceNet8.Repositories.ValidationsRepository;
@@ -81,6 +85,9 @@ builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 builder.Services.AddScoped<IShippingTypeRepository, ShippingTypeRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IReturnExchangeRequestRepository, ReturnExchangeRequestRepository>();
+builder.Services.AddScoped<IReturnRequestRepository, ReturnRequestRepository>();
+builder.Services.AddScoped<IRefundRepository, RefundRepository>();
 
 
 builder.Services.AddSendGrid(options =>
